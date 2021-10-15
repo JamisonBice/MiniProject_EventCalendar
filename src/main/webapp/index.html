@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<form action = "addEventServlet"method="post">
+	Event Date: <input type="text" name = "eventDateMonth" placeholder="mm" size="4">
+	<input type="text" name = "eventDateDay" placeholder="dd" size="4">
+	<input type="text" name = "eventDateYear" placeholder="yyyy" size="4">
+	<br />
+	Event Type: <input type ="text"name = "eventType">
+	<br />
+	Event Name: <input type = "text"name = "eventName">
+	<br />
+	<input type = "submit"value="Add Item">
+	</form>
+	<br />
+	<a href = "viewAllEventsServlet">View the complete list of events</a>
+	<br />
+	<a href = "viewAllListsServlet">View all event lists</a><br />
+	<a href = "addItemsForListServlet">Create a new event</a>
+</body>
+</html>
