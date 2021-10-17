@@ -25,4 +25,3 @@ Available Items:<br />
 <a href="index.html">Go add new events instead</a>
 </body>
 </html>
-</html>

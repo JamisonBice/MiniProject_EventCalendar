@@ -15,7 +15,7 @@ import model.ListDetails;
  * Oct 16, 2021
  */
 public class ListDetailsHelper {
-	
+
 	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("MiniProject_EventCalendar");
 
 	public void insertNewListDetails(ListDetails s) {
@@ -58,4 +58,6 @@ public class ListDetailsHelper {
 		em.getTransaction().commit(); 
 		em.close(); 
 		} 
+
 }
+
