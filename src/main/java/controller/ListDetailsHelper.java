@@ -16,7 +16,7 @@ import model.ListDetails;
  */
 public class ListDetailsHelper {
 	
-	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("MiniProjst_EventCalendar");
+	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("MiniProject_EventCalendar");
 
 	public void insertNewListDetails(ListDetails s) {
 		EntityManager em = emfactory.createEntityManager();
