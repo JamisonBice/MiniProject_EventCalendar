@@ -1,8 +1,10 @@
 package model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * @author Nick - ntambroson
@@ -10,10 +12,13 @@ import javax.persistence.Id;
  * Oct 16, 2021
  */
 @Entity
+@Table(name="sort")
 public class EventSort {
 	@Id
 	@GeneratedValue
 	private int id;
+	
+	@Column(name="Sort_Name")
 	private String eventSortName;
 	public EventSort() {
 		super();
