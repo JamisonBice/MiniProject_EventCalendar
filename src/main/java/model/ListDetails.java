@@ -1,6 +1,5 @@
 package model;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -10,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 /**
  * @author Nick - ntambroson
@@ -17,6 +17,7 @@ import javax.persistence.OneToMany;
  * Oct 16, 2021
  */
 @Entity
+@Table(name="details")
 public class ListDetails {
 	
 	@Id
@@ -47,6 +48,11 @@ public class ListDetails {
 		this.listOfItems = listOfItems;
 	}
 	
+	public ListDetails(String listName, EventSort eventSort) {
+		this.listName = listName;
+		this.eventSort = eventSort;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -79,11 +85,7 @@ public class ListDetails {
 		this.listOfItems = listOfItems;
 	}
 
-	public ListDetails(String listName, EventSort eventSort) {
-		super();
-		this.listName = listName;
-		this.eventSort = eventSort;
-	}
+	
 	
 	@Override
 	public String toString() {

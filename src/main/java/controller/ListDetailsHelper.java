@@ -58,4 +58,6 @@ public class ListDetailsHelper {
 		em.getTransaction().commit(); 
 		em.close(); 
 		} 
+
 }
+

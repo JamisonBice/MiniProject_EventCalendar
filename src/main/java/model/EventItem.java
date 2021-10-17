@@ -75,4 +75,10 @@ public class EventItem {
 		return this.eventDate + ";" + this.eventType + ":" + this.eventName;
 	}
 
+	@Override
+	public String toString() {
+		return "EventItem [id=" + id + ", eventType=" + eventType + ", eventName=" + eventName + ", eventDate="
+				+ eventDate + "]";
+	}
+
 }

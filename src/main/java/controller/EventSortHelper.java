@@ -2,6 +2,7 @@ package controller;
 
 import java.util.List;
 
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.NoResultException;
@@ -16,6 +17,7 @@ import model.EventSort;
  * Oct 16, 2021
  */
 public class EventSortHelper {
+
 	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("MiniProject_EventCalendar");
 
 	public void insertEventSort(EventSort d) {
@@ -44,5 +46,3 @@ public class EventSortHelper {
 		em.close(); 
 		return foundEventSort; 
 		}
-
-}
