@@ -3,15 +3,14 @@
 	<persistence-unit name="MiniProject_EventCalendar" transaction-type="RESOURCE_LOCAL">
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
 		<class>model.EventItem</class>
-		<class>controller.LocalDateAttributeConverter</class>
 		<class>model.EventSort</class>
 		<class>model.ListDetails</class>
+		<class>controller.LocalDateAttributeConverter</class>
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/events"/>
-			<property name="javax.persistence.jdbc.user" value="root"/>
-			<property name="javax.persistence.jdbc.password" value="Ih8newpasswords"/>
-			<property name="eclipselink.ddl-generation" value="none"/>
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://cis-175partnerproject.c3yjnhalr3i9.us-east-1.rds.amazonaws.com/events"/>
+			<property name="javax.persistence.jdbc.user" value="admin"/>
+			<property name="javax.persistence.jdbc.password" value="airplanecar"/>
 		</properties>
 	</persistence-unit>
 </persistence>
