@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 
 import model.ListDetails;
 
@@ -14,8 +15,8 @@ import model.ListDetails;
  * Oct 16, 2021
  */
 public class ListDetailsHelper {
-	
-	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("MiniProject_EventCalendar");
+
+	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("MiniProjst_EventCalendar");
 
 	public void insertNewListDetails(ListDetails s) {
 		EntityManager em = emfactory.createEntityManager();
@@ -24,11 +25,37 @@ public class ListDetailsHelper {
 		em.getTransaction().commit();
 		em.close();
 	}
-	
-	public List<ListDetails> getLists(){
+
+	public List<ListDetails> getLists() {
 		EntityManager em = emfactory.createEntityManager();
-		List<ListDetails> allDetails = em.createQuery("SELECT d FROM ListDetails d").getResultList();
+		List<ListDetails> allDetails = em.createQuery("SELECT  d FROM ListDetails d").getResultList();
 		return allDetails;
 	}
 
+	public void deleteList(ListDetails toDelete) {
+		// TODO Auto-generated method stub
+		EntityManager em = emfactory.createEntityManager();
+		em.getTransaction().begin();
+		TypedQuery<ListDetails> typedQuery = em.createQuery("selst detail from ListDetails detail where detail.id = :selstedId", ListDetails.class);
+		typedQuery.setParameter("selstedId", toDelete.getId());
+		typedQuery.setMaxResults(1);
+		ListDetails result = typedQuery.getSingleResult();
+		em.remove(result);
+		em.getTransaction().commit();
+		em.close();
+	}
+
+	public ListDetails searchForListDetailsById(Integer tempId) {
+		EntityManager em = emfactory.createEntityManager();
+		em.getTransaction().begin();
+		ListDetails found = em.find(ListDetails.class, tempId);
+		em.close();
+		return found;
+	}
+	public void updateList(ListDetails toEdit) { 
+		EntityManager em = emfactory.createEntityManager(); em.getTransaction().begin(); 
+		em.merge(toEdit); 
+		em.getTransaction().commit(); 
+		em.close(); 
+		} 
 }
