@@ -44,7 +44,9 @@ public class EventSortHelper {
 		} catch (NoResultException ex) {
 			foundEventSort = new EventSort(nameToLookUp);
 		}
+
 		em.close();
 		return foundEventSort;
 	}
+
 }
