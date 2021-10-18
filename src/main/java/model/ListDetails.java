@@ -12,14 +12,12 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
- * @author Nick - ntambroson
- * CIS175 - Fall 2021
- * Oct 16, 2021
+ * @author Nick - ntambroson CIS175 - Fall 2021 Oct 16, 2021
  */
 @Entity
-@Table(name="details")
+@Table(name = "details")
 public class ListDetails {
-	
+
 	@Id
 	@GeneratedValue
 	private int id;
@@ -28,11 +26,11 @@ public class ListDetails {
 	private EventSort eventSort;
 	@OneToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
 	private List<EventItem> listOfItems;
-	
+
 	public ListDetails() {
 		super();
 	}
-	
+
 	public ListDetails(int id, String listName, EventSort eventSort, List<EventItem> listOfItems) {
 		super();
 		this.id = id;
@@ -40,14 +38,14 @@ public class ListDetails {
 		this.eventSort = eventSort;
 		this.listOfItems = listOfItems;
 	}
-	
+
 	public ListDetails(String listName, EventSort eventSort, List<EventItem> listOfItems) {
 		super();
 		this.listName = listName;
 		this.eventSort = eventSort;
 		this.listOfItems = listOfItems;
 	}
-	
+
 	public ListDetails(String listName, EventSort eventSort) {
 		this.listName = listName;
 		this.eventSort = eventSort;
@@ -85,12 +83,10 @@ public class ListDetails {
 		this.listOfItems = listOfItems;
 	}
 
-	
-	
 	@Override
 	public String toString() {
-		return "ListDetails [id=" + id + ", listName=" + listName + ", eventSort=" + eventSort
-				+ ", listOfItems=" + listOfItems + "]";
+		return "ListDetails [id=" + id + ", listName=" + listName + ", eventSort=" + eventSort + ", listOfItems="
+				+ listOfItems + "]";
 	}
 
 }
