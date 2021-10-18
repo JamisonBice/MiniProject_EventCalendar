@@ -10,9 +10,7 @@ import javax.persistence.TypedQuery;
 import model.ListDetails;
 
 /**
- * @author Nick - ntambroson
- * CIS175 - Fall 2021
- * Oct 16, 2021
+ * @author Nick - ntambroson CIS175 - Fall 2021 Oct 16, 2021
  */
 public class ListDetailsHelper {
 
@@ -36,7 +34,8 @@ public class ListDetailsHelper {
 		// TODO Auto-generated method stub
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
-		TypedQuery<ListDetails> typedQuery = em.createQuery("selst detail from ListDetails detail where detail.id = :selstedId", ListDetails.class);
+		TypedQuery<ListDetails> typedQuery = em
+				.createQuery("selst detail from ListDetails detail where detail.id = :selstedId", ListDetails.class);
 		typedQuery.setParameter("selstedId", toDelete.getId());
 		typedQuery.setMaxResults(1);
 		ListDetails result = typedQuery.getSingleResult();
@@ -52,12 +51,13 @@ public class ListDetailsHelper {
 		em.close();
 		return found;
 	}
-	public void updateList(ListDetails toEdit) { 
-		EntityManager em = emfactory.createEntityManager(); em.getTransaction().begin(); 
-		em.merge(toEdit); 
-		em.getTransaction().commit(); 
-		em.close(); 
-		} 
+
+	public void updateList(ListDetails toEdit) {
+		EntityManager em = emfactory.createEntityManager();
+		em.getTransaction().begin();
+		em.merge(toEdit);
+		em.getTransaction().commit();
+		em.close();
+	}
 
 }
-
