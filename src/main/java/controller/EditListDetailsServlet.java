@@ -1,6 +1,7 @@
  package controller;
 
 import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +16,7 @@ import model.EventItem;
 import model.EventSort;
 /**
  * @author Jamison Bice - jdbice
+
  * CIS175 - Fall 2021
  * Sep 15, 2021
  */
