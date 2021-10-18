@@ -34,11 +34,14 @@ public class EventItemHelper {
 	public void deleteItem(EventItem toDelete) {
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
-		TypedQuery<EventItem> typedQuery = em.createQuery("select ei from EventItem ei where "
-				// + "ei.eventDate = :selectedEventDate and "
-				+ "ei.eventType = :selectedEventType and " + "ei.eventName = :selectedEventName", EventItem.class);
 
-		// typedQuery.setParameter("selectedEventDate", toDelete.getEventDate());
+		TypedQuery<EventItem> typedQuery = em.createQuery(
+				"select ei from EventItem ei where " + "ei.eventDate = :selectedEventDate and "
+						+ "ei.eventType = :selectedEventType and " + "ei.eventName = :selectedEventName",
+				EventItem.class);
+
+		typedQuery.setParameter("selectedEventDate", toDelete.getEventDate());
+
 		typedQuery.setParameter("selectedEventType", toDelete.getEventType());
 		typedQuery.setParameter("selectedEventName", toDelete.getEventName());
 

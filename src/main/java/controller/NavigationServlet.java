@@ -1,11 +1,15 @@
 package controller;
 
 import java.io.IOException;
+
+import javax.persistence.RollbackException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.eclipse.persistence.exceptions.DatabaseException;
 
 import model.EventItem;
 
@@ -54,6 +58,9 @@ public class NavigationServlet extends HttpServlet {
 
 			} catch (NumberFormatException e) {
 				System.out.println("Forgot to select an event");
+			} catch ( RollbackException e) {
+				System.out.println("Must delete item from lists first");
+				path = "/listNavigationServlet";
 			}
 
 		} else if (act.equals("edit")) {
