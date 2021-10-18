@@ -41,6 +41,7 @@ public class EventItemHelper {
 				EventItem.class);
 
 		typedQuery.setParameter("selectedEventDate", toDelete.getEventDate());
+
 		typedQuery.setParameter("selectedEventType", toDelete.getEventType());
 		typedQuery.setParameter("selectedEventName", toDelete.getEventName());
 

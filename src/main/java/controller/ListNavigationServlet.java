@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.ListDetails;
+
 /**
  * @author Jamison Bice - jdbice
  * CIS175 - Fall 2021
@@ -19,27 +20,31 @@ import model.ListDetails;
 @WebServlet("/listNavigationServlet")
 public class ListNavigationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ListNavigationServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public ListNavigationServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		ListDetailsHelper odh = new ListDetailsHelper();
 		String act = request.getParameter("doThisToList");
@@ -65,27 +70,25 @@ public class ListNavigationServlet extends HttpServlet {
 				Integer tempId = Integer.parseInt(request.getParameter("id"));
 				ListDetails listToEdit = odh.searchForListDetailsById(tempId);
 				request.setAttribute("listToEdit", listToEdit);
-				
+
 				EventItemHelper eccForItems = new EventItemHelper();
-				
+
 				request.setAttribute("allItems", eccForItems.showAllItems());
-							
-				if(eccForItems.showAllItems().isEmpty()){
-						request.setAttribute("allItems", " ");
+
+				if (eccForItems.showAllItems().isEmpty()) {
+					request.setAttribute("allItems", " ");
 				}
 				getServletContext().getRequestDispatcher("/edit-list.jsp").forward(request, response);
 			} catch (NumberFormatException e) {
 				getServletContext().getRequestDispatcher("/viewAllListsServlet").forward(request, response);
-			} 
+			}
 
 		} else if (act.equals("add")) {
-			
-				getServletContext().getRequestDispatcher("/addItemsForListServlet").forward(request, response);
-			
+
+			getServletContext().getRequestDispatcher("/addItemsForListServlet").forward(request, response);
+
 		}
-		
-		
-		
+
 	}
 
 }

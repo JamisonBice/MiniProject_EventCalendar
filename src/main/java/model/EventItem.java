@@ -9,12 +9,10 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
- * @author Nick - ntambroson
- * CIS175 - Fall 2021
- * Oct 13, 2021
+ * @author Nick - ntambroson CIS175 - Fall 2021 Oct 13, 2021
  */
 @Entity
-@Table(name="events")
+@Table(name = "events")
 public class EventItem {
 	@Id
 	@GeneratedValue
@@ -26,11 +24,11 @@ public class EventItem {
 	private String eventName;
 	@Column(name = "EVENT_DATE")
 	private LocalDate eventDate;
-	
+
 	public EventItem() {
 		super();
 	}
-	
+
 	public EventItem(String eventType, String eventName, LocalDate eventDate) {
 		super();
 		this.eventType = eventType;
@@ -69,9 +67,9 @@ public class EventItem {
 	public void setEventDate(LocalDate eventDate) {
 		this.eventDate = eventDate;
 	}
-	
+
 	public String returnEventDetails() {
-		
+
 		return this.eventDate + ";" + this.eventType + ":" + this.eventName;
 	}
 
