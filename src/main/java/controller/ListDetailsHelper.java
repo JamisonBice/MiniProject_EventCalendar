@@ -35,8 +35,8 @@ public class ListDetailsHelper {
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
 		TypedQuery<ListDetails> typedQuery = em
-				.createQuery("selst detail from ListDetails detail where detail.id = :selstedId", ListDetails.class);
-		typedQuery.setParameter("selstedId", toDelete.getId());
+				.createQuery("select detail from ListDetails detail where detail.id = :selectedId", ListDetails.class);
+		typedQuery.setParameter("selectedId", toDelete.getId());
 		typedQuery.setMaxResults(1);
 		ListDetails result = typedQuery.getSingleResult();
 		em.remove(result);
